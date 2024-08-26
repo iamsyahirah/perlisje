@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FilterPanel from '../../components/Home/FilterPanel'
 import SearchBar from '../../components/Home/SearchBar'
 import List from '../../components/Home/List'
 import './styles.css';
+import { dataList } from '../../constants';
 
 const Home = () => {
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [selectedRating, setSelectedRating] = useState(null);
     const [selectedPrice, setSelectedPrice] = useState([50, 1000]);
+    const [list, setList] = useState(dataList);
+
     const [cuisines, setCuisines] = useState([
         {
             id: 1,
@@ -42,6 +45,23 @@ const Home = () => {
 
     const handleChangePrice = (event, value) => setSelectedPrice(value);
 
+    const applyFilters = () => {
+        let updatedList = dataList;
+
+        //Rating Filter
+        if (selectedRating) {
+            updatedList = updatedList.filter(
+                (item) => parseInt(item.rating) === parseInt(selectedRating)
+            );
+        }
+
+        setList(updatedList);
+    };
+
+    useEffect(() => {
+        applyFilters();
+    }, [selectedRating])
+
     return (
         <div className='home'>
             {/* Search Bar */}
@@ -64,7 +84,7 @@ const Home = () => {
 
                 <div className='home_list-wrap'>
                     {/* List & Empty View */}
-                    <List />
+                    <List list={list} />
                 </div>
             </div>
         </div>
