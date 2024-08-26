@@ -8,7 +8,7 @@ import { dataList } from '../../constants';
 const Home = () => {
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [selectedRating, setSelectedRating] = useState(null);
-    const [selectedPrice, setSelectedPrice] = useState([50, 1000]);
+    const [selectedPrice, setSelectedPrice] = useState([50, 5000]);
     const [list, setList] = useState(dataList);
 
     const [cuisines, setCuisines] = useState([
@@ -55,12 +55,37 @@ const Home = () => {
             );
         }
 
+        // Category Filter
+        if (selectedCategory) {
+            updatedList = updatedList.filter(
+                (item) => item.category === selectedCategory
+            );
+        }
+
+        // Cuisine Filter
+        const cuisineChecked = cuisines
+            .filter((item) => item.checked)
+            .map((item) => item.label.toLowerCase());
+
+        if (cuisineChecked.length) {
+            updatedList = updatedList.filter(item =>
+                cuisineChecked.includes(item.cuisine));
+        }
+
+        // Price Filter
+        const minPrice = selectedPrice[0];
+        const maxPrice = selectedPrice[1];
+
+        updatedList = updatedList.filter(
+            (item) => item.price >= minPrice && item.price <= maxPrice
+        );
+
         setList(updatedList);
     };
 
     useEffect(() => {
         applyFilters();
-    }, [selectedRating])
+    }, [selectedRating, selectedCategory, cuisines, selectedPrice])
 
     return (
         <div className='home'>
