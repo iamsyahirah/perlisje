@@ -4,12 +4,15 @@ import SearchBar from '../../components/Home/SearchBar'
 import List from '../../components/Home/List'
 import './styles.css';
 import { dataList } from '../../constants';
+import EmptyView from '../../components/common/EmptyView';
 
 const Home = () => {
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [selectedRating, setSelectedRating] = useState(null);
     const [selectedPrice, setSelectedPrice] = useState([50, 5000]);
     const [list, setList] = useState(dataList);
+    const [inputSearch, setInputSearch] = useState('');
+    const [resultFound, setResultFound] = useState(false);
 
     const [cuisines, setCuisines] = useState([
         {
@@ -80,17 +83,26 @@ const Home = () => {
             (item) => item.price >= minPrice && item.price <= maxPrice
         );
 
+        // Search Filter
+        if (inputSearch) {
+            updatedList = updatedList.filter(
+                (item) => item.title.toLowerCase().search(inputSearch.toLowerCase().trim()) !== -1
+            )
+        }
+
         setList(updatedList);
+
+        !updatedList.length ? setResultFound(false) : setResultFound(true);
     };
 
     useEffect(() => {
         applyFilters();
-    }, [selectedRating, selectedCategory, cuisines, selectedPrice])
+    }, [selectedRating, selectedCategory, cuisines, selectedPrice, inputSearch])
 
     return (
         <div className='home'>
             {/* Search Bar */}
-            <SearchBar />
+            <SearchBar value={inputSearch} changeInput={e => setInputSearch(e.target.value)} />
             <div className='home_panelList-wrap'>
                 <div className='home_panel-wrap'>
                     {/* Side Panels */}
@@ -109,7 +121,7 @@ const Home = () => {
 
                 <div className='home_list-wrap'>
                     {/* List & Empty View */}
-                    <List list={list} />
+                    {resultFound ? <List list={list} /> : <EmptyView />}
                 </div>
             </div>
         </div>
