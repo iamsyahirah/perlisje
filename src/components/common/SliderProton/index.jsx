@@ -25,8 +25,8 @@ const SliderProton = ({ value, changedPrice }) => {
                 value={value}
                 onChange={changedPrice}
                 valueLabelDisplay='on'
-                min={50}
-                max={5000}
+                min={0}
+                max={1000}
             />
         </StyledSliderContainer>
     );

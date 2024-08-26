@@ -9,7 +9,7 @@ import EmptyView from '../../components/common/EmptyView';
 const Home = () => {
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [selectedRating, setSelectedRating] = useState(null);
-    const [selectedPrice, setSelectedPrice] = useState([50, 5000]);
+    const [selectedPrice, setSelectedPrice] = useState([0, 1000]);
     const [list, setList] = useState(dataList);
     const [inputSearch, setInputSearch] = useState('');
     const [resultFound, setResultFound] = useState(false);
@@ -18,15 +18,45 @@ const Home = () => {
         {
             id: 1,
             checked: false,
-            label: 'American',
+            label: 'Western',
         },
         {
             id: 2,
             checked: false,
-            label: 'Melayu',
+            label: 'Ikan Bakar',
         },
         {
             id: 3,
+            checked: false,
+            label: 'Tom Yam'
+        },
+        {
+            id: 4,
+            checked: false,
+            label: 'Sarapan'
+        },
+        {
+            id: 5,
+            checked: false,
+            label: 'Burger'
+        },
+        {
+            id: 6,
+            checked: false,
+            label: 'Coffee'
+        },
+        {
+            id: 7,
+            checked: false,
+            label: 'Vendor'
+        },
+        {
+            id: 8,
+            checked: false,
+            label: 'Korean'
+        },
+        {
+            id: 8,
             checked: false,
             label: 'Chinese'
         },
