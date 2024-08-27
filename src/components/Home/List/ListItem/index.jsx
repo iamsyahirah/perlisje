@@ -14,7 +14,7 @@ const ListItem = ({
             <footer>
                 <p>
                     <b>{township}</b>
-                    <span> | Harga bermula RM <b> {price}</b></span>
+                    {/*<span> | Harga bermula RM <b> {price}</b></span>*/}
                 </p>
                 <p>
 

@@ -68,7 +68,7 @@ export const dataList = [
     township: 'Kangar',
     url: 'https://maps.app.goo.gl/YrFtQdH3uZXiSXmv5',
     category: 'place',
-    cuisine: 'sarapan',
+    cuisine: 'western',
     rating: 4,
     price: 1,
     coverSrc: '/images/lokasi/warung_tepi_sawah.jpeg',

@@ -33,6 +33,7 @@ const FilterPanel = ({
                     <CheckboxProton key={cuisine.id} cuisine={cuisine} changeChecked={changeChecked} />)}
             </div>
             { /* Price Range */}
+            {/*}
             <div className='input-group'>
                 <p className='label-range'>Harga</p>
                 <SliderProton
@@ -40,6 +41,7 @@ const FilterPanel = ({
                     changedPrice={changedPrice}
                 />
             </div>
+            */}
             { /* Star Rating */}
             <div className='input-group'>
                 <p className='label'>Star Rating</p>
