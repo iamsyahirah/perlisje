@@ -41,7 +41,7 @@ const FilterPanel = ({
                     changedPrice={changedPrice}
                 />
             </div>
-            */}
+                */}
             { /* Star Rating */}
             <div className='input-group'>
                 <p className='label'>Star Rating</p>
