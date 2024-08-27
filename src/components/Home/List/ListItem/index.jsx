@@ -3,7 +3,7 @@ import './styles.css';
 import LocationOnTwoToneIcon from '@mui/icons-material/LocationOnTwoTone';
 
 const ListItem = ({
-    item: { coverSrc, title, price, township, rating, url } }) => {
+    item: { coverSrc, title, price, township, rating, url, cuisine } }) => {
     return (
         <div className="listItem-wrap">
             <img src={coverSrc} alt="item" />
@@ -14,7 +14,7 @@ const ListItem = ({
             <footer>
                 <p>
                     <b>{township}</b>
-                    {/*<span> | Harga bermula RM <b> {price}</b></span>*/}
+                    <span> | <b> {cuisine}</b></span>
                 </p>
                 <p>
 
