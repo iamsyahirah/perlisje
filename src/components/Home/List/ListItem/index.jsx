@@ -1,21 +1,28 @@
 import React from 'react'
 import './styles.css';
+import LocationOnTwoToneIcon from '@mui/icons-material/LocationOnTwoTone';
 
 const ListItem = ({
-    item: { coverSrc, title, price, deliveryFee, serviceTime, rating } }) => {
+    item: { coverSrc, title, price, township, rating, url, cuisine } }) => {
     return (
         <div className="listItem-wrap">
             <img src={coverSrc} alt="item" />
             <header>
-                <h4>{title}</h4>
-                <span>⭐️ {rating}</span>
+                <h3>{title}</h3>
+                <span>{rating} ⭐️</span>
             </header>
             <footer>
                 <p>
-                    <b>{serviceTime}</b>
-                    <span>Delivery Fee ${deliveryFee}</span>
+                    <b>{township}</b>
+                    <span> | <b> {cuisine}</b></span>
                 </p>
-                <p>${price}</p>
+                <p>
+
+                    <a href={url} target="_blank">
+                        <LocationOnTwoToneIcon></LocationOnTwoToneIcon>
+                    </a>
+                </p>
+
             </footer>
         </div>
     )

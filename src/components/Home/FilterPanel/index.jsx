@@ -20,7 +20,7 @@ const FilterPanel = ({
         <div>
             {/* Category */}
             <div className='input-group'>
-                <p className='label'>Category</p>
+                <p className='label'>Kategori</p>
                 <FilterListToggle
                     options={categoryList}
                     value={selectedCategory}
@@ -28,18 +28,20 @@ const FilterPanel = ({
             </div>
             { /* Cuisines */}
             <div className='input-group'>
-                <p className='label'>Cuisine</p>
+                <p className='label'>Jenis Makanan</p>
                 {cuisines.map(cuisine =>
                     <CheckboxProton key={cuisine.id} cuisine={cuisine} changeChecked={changeChecked} />)}
             </div>
             { /* Price Range */}
+            {/*}
             <div className='input-group'>
-                <p className='label-range'>Cuisine</p>
+                <p className='label-range'>Harga</p>
                 <SliderProton
                     value={selectedPrice}
                     changedPrice={changedPrice}
                 />
             </div>
+                */}
             { /* Star Rating */}
             <div className='input-group'>
                 <p className='label'>Star Rating</p>

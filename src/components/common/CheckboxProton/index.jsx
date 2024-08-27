@@ -10,7 +10,7 @@ const StyledFormControlLabel = styled(FormControlLabel)(({ theme }) => ({
     alignItems: 'center',
     marginLeft: 0,
     '& .MuiFormControlLabel-label': {
-        fontSize: '.8rem',
+        fontSize: '.9rem',
         fontFamily: `'Raleway', sans-serif`,
     },
 }));
